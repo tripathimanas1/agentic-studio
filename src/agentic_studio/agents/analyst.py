@@ -10,11 +10,24 @@ class AnalystAgent:
     def __init__(self, llm: LLM) -> None:
         self.llm = llm
 
-    def run(self, question: str, plan: str, hits: list[RetrievalHit], memory_text: str) -> str:
+    def run(
+        self,
+        question: str,
+        plan: str,
+        hits: list[RetrievalHit] | None = None,
+        memory_text: str = "",
+    ) -> str:
+        """Analyze question using plan and evidence."""
+        hits = hits or []
+
         evidence = "\n\n".join(
             f"[{i}] {h.chunk.title} ({h.chunk.source})\n{h.chunk.text[:500]}"
             for i, h in enumerate(hits, start=1)
         )
+
+        if not evidence:
+            evidence = "[No evidence provided]"
+
         prompt = (
             "Answer the strategy question using only provided evidence where possible. "
             "Be explicit about assumptions and uncertainty.\n\n"

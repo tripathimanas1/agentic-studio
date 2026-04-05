@@ -1,6 +1,6 @@
 # Agentic Strategy Studio
 
-An opinionated, production-minded starter app that demonstrates advanced Agentic AI patterns in one cohesive workflow:
+An opinionated, productGEMINIion-minded starter app that demonstrates advanced Agentic AI patterns in one cohesive workflow:
 
 - Multi-agent orchestration (`Planner -> Retriever -> Analyst -> Skeptic -> Synthesizer`)
 - Hybrid RAG (semantic + lexical retrieval with reciprocal rank fusion)

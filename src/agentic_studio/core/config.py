@@ -10,6 +10,7 @@ class Settings:
     gemini_model: str = os.getenv("GEMINI_MODEL", "gemini-2.0-flash")
     max_chunks: int = int(os.getenv("MAX_RAG_CHUNKS", "6"))
     temperature: float = float(os.getenv("MODEL_TEMPERATURE", "0.1"))
+    max_iterations: int = int(os.getenv("MAX_ORCHESTRATOR_ITERATIONS", "10"))
 
 
 settings = Settings()
